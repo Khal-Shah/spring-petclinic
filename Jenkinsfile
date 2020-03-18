@@ -29,17 +29,19 @@ pipeline
       } 
     }
     
-     node 
+     stage('Deploy') 
     {
-      stage('Deploy') 
+      when 
       {
-        if (env.BRANCH_NAME == 'master') 
+        not 
         {
-           steps 
-          {
-            sh './mvnw deploy'
-          } 
+           branch 'master'
         }
+      }
+
+      steps 
+      {
+        './mvnw deploy'
       }
     }
     
