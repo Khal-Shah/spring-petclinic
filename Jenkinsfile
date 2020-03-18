@@ -29,8 +29,6 @@ pipeline
       } 
     }
     
-    if ( env.BRANCH_NAME == 'master' )
-    {
       stage('Deploy') 
       {
         steps 
@@ -38,6 +36,6 @@ pipeline
           sh './mvnw deploy'
         } 
       }
-    }
+    
   } 
 }
