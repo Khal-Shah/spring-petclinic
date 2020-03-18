@@ -29,15 +29,12 @@ pipeline
       } 
     }
     
-      stage('Deploy') 
-      {
-        If (env.BRANCH_NAME == 'master')
-        {
-          steps 
-          {
-            sh './mvnw deploy'
-          }  
-        } 
+     If (env.BRANCH_NAME == 'master')
+     {
+        stage('Deploy') 
+       {
+          sh './mvnw deploy'
+       }   
       }
     
   } 
