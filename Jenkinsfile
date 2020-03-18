@@ -31,9 +31,12 @@ pipeline
     
       stage('Deploy') 
       {
-        steps 
+        If (env.BRANCH_NAME == 'master')
         {
-          sh './mvnw deploy'
+          steps 
+          {
+            sh './mvnw deploy'
+          }  
         } 
       }
     
