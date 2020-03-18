@@ -9,7 +9,7 @@ pipeline
     {
       steps 
       {
-        sh './mvnw package'
+        sh './mvnw clean'
       } 
     }
 
@@ -19,6 +19,25 @@ pipeline
       {
         sh './mvnw test'
       } 
+    }
+    
+    stage('Package') 
+    {
+      steps 
+      {
+        sh './mvnw package'
+      } 
+    }
+    
+    if(env.BRANCH_NAME == 'master')
+    {
+      stage('Deploy') 
+      {
+        steps 
+        {
+          sh './mvnw deploy'
+        } 
+      }
     }
   } 
 }
