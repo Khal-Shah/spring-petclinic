@@ -29,15 +29,13 @@ pipeline
       } 
     }
     
-     stage('Deploy') 
+     stage('Deploy')
     {
-      when 
-      { 
-        {
-           branch 'master'
-        }
+      agent any
+      when
+      {
+        branch 'master'
       }
-
       steps 
       {
         sh './mvnw deploy'
