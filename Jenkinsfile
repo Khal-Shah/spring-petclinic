@@ -41,7 +41,7 @@ pipeline
 
       steps 
       {
-        './mvnw deploy'
+        sh './mvnw deploy'
       }
     }
     
