@@ -12,5 +12,34 @@ pipeline
         sh './mvnw clean'
       } 
     }
+
+    stage('Test') 
+    {
+      steps 
+      {
+        sh './mvnw test'
+      } 
+    }
+    
+    stage('Package') 
+    {
+      steps 
+      {
+        sh './mvnw package'
+      } 
+    }
+    
+     stage('Deploy')
+    {
+      agent any
+      when
+      {
+        branch 'master'
+      }
+      steps 
+      {
+        sh './mvnw deploy'
+      }
+    }
   } 
 }
