@@ -41,5 +41,6 @@ pipeline
         sh './mvnw deploy'
       }
     }
+
   } 
 }
