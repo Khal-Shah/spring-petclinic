@@ -13,31 +13,5 @@ pipeline
       } 
     }
 
-    stage('Test') 
-    {
-      steps 
-      {
-        sh './mvnw test'
-      } 
-    }
-    
-    stage('Package') 
-    {
-      steps 
-      {
-        sh './mvnw package'
-      } 
-    }
-    
-    if(env.BRANCH_NAME == 'master')
-    {
-      stage('Deploy') 
-      {
-        steps 
-        {
-          sh './mvnw deploy'
-        } 
-      }
-    }
   } 
 }
