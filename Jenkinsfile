@@ -10,6 +10,9 @@ pipeline
       steps 
       {
         sh './mvnw clean'
+        slackSend channel: '#345slacknotification', 
+                          message: 'Build successful'
+
       } 
     }
 
@@ -18,6 +21,8 @@ pipeline
       steps 
       {
         sh './mvnw test'
+        slackSend channel: '#345slacknotification', 
+                          message: 'Test successful'
       } 
     }
     
@@ -26,6 +31,8 @@ pipeline
       steps 
       {
         sh './mvnw package'
+        slackSend channel: '#345slacknotification', 
+                          message: 'Package successful'
       } 
     }
     
@@ -39,12 +46,10 @@ pipeline
       steps 
       {
         sh './mvnw deploy'
+        slackSend channel: '#345slacknotification', 
+                          message: 'Deploy successful'
       }
     }
   } 
   
-  post 
-  {
-    slackSend color: 'good', message: 'Message from Jenkins Pipeline: Build successful.'
-  }
 }
