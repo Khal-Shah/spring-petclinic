@@ -42,8 +42,9 @@ pipeline
       }
     }
   } 
+  
   post 
-	{
-     slackSend color: 'good', message: 'Message from Jenkins Pipeline: Build successful.'
- 	}
+  {
+    slackSend color: 'good', message: 'Message from Jenkins Pipeline: Build successful.'
+  }
 }
