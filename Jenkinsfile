@@ -11,6 +11,7 @@ pipeline
       {
         sh './mvnw clean'
         slackSend channel: '#345slacknotification', 
+                          color: '#ff0000'
                           message: 'Build successful'
 
       } 
